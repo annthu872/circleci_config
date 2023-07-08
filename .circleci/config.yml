@@ -10,4 +10,4 @@ jobs:
 workflows:
   build_test_deploy: # this can be any name you choose tên workflows
     jobs:
-      - buil_and_test
+      - build_and_test
