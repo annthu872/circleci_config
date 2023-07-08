@@ -2,12 +2,21 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
 jobs:
-  build_and_test: # this can be any name you choose - tên jobs
+  build: # this can be any name you choose - tên jobs
     executor: python/default
     steps:
       - checkout
-      - run: python --version
+      - run: python main.py
+
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - run: python main-test.py
 workflows:
   build_test_deploy: # this can be any name you choose tên workflows
     jobs:
-      - build_and_test
+      - build
+      - test:
+        requires:
+          - build
