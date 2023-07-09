@@ -13,3 +13,6 @@ def Add_test():
     assert Add(9999999999999999,1) == 10000000000000000
 
     print("Test successfully")
+
+if __name__ =="__main__":
+    Add_test()
