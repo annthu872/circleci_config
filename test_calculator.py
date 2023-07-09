@@ -6,7 +6,7 @@ def Add_test():
     assert Add(0,0) == 0
     assert Add(10,-5) == 5
     assert Add(3.14,1.86) ==5.0
-    assert Add(1000000,1) ==1000001
+    assert Add(1000000,1) ==1000002 #not correct test case
     assert Add(100,200) == 300
     assert Add(-10,-20) ==-30
     assert Add(0.5,0.5) == 1.0
