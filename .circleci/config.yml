@@ -1,13 +1,22 @@
-version: 2.1
+version: 2.1 # Use the latest 2.1 version of CircleCI pipeline process engine.
+
+# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 orbs:
   python: circleci/python@2.0.3
+  # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
+  # Orb commands and jobs help you with common scripting around a language/tool
+  # so you dont have to copy and paste it everywhere.
+
+# Define a job to be invoked later in a workflow.
 jobs:
-  build_and_test: # this can be any name you choose - tên jobs
-    executor: python/default
+  test_add: # job's name
+    executor: python/default # use the default executor defined within the orb
     steps:
-      - checkout
-      - run: python --version
+      - checkout # checkout source code
+      - run: python test_calculator.py
+
+# Invoke jobs via workflows 
 workflows:
-  build_test_deploy: # this can be any name you choose tên workflows
+  test: # workflows's name
     jobs:
-      - build_and_test
+      - test_add
